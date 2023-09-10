@@ -422,12 +422,12 @@ export class TotalIssueTrophy extends Trophy {
       new RankCondition(
         RANK.SSS,
         "God Issuer",
-        1000,
+        500,
       ),
       new RankCondition(
         RANK.SS,
         "Deep Issuer",
-        500,
+        300,
       ),
       new RankCondition(
         RANK.S,
@@ -472,12 +472,12 @@ export class TotalPullRequestTrophy extends Trophy {
       new RankCondition(
         RANK.SSS,
         "God Puller",
-        1000,
+        500,
       ),
       new RankCondition(
         RANK.SS,
         "Deep Puller",
-        500,
+        300,
       ),
       new RankCondition(
         RANK.S,
@@ -522,37 +522,37 @@ export class TotalRepositoryTrophy extends Trophy {
       new RankCondition(
         RANK.SSS,
         "God Repo Creator",
-        100,
+        50,
       ),
       new RankCondition(
         RANK.SS,
         "Deep Repo Creator",
-        90,
+        40,
       ),
       new RankCondition(
         RANK.S,
         "Super Repo Creator",
-        80,
+        30,
       ),
       new RankCondition(
         RANK.AAA,
         "Ultra Repo Creator",
-        50,
+        20,
       ),
       new RankCondition(
         RANK.AA,
         "Hyper Repo Creator",
-        30,
+        15,
       ),
       new RankCondition(
         RANK.A,
         "High Repo Creator",
-        20,
+        10,
       ),
       new RankCondition(
         RANK.B,
         "Middle Repo Creator",
-        10,
+        5,
       ),
       new RankCondition(
         RANK.C,
