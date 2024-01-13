@@ -1,22 +1,23 @@
 import {
-  Trophy,
-  TotalStarTrophy,
+  AccountDurationTrophy,
+  AllSuperRankTrophy,
+  AncientAccountTrophy,
+  Joined2020Trophy,
+  LongTimeAccountTrophy,
+  MultipleLangTrophy,
+  MultipleOrganizationsTrophy,
+  OGAccountTrophy,
   TotalCommitTrophy,
   TotalFollowerTrophy,
   TotalIssueTrophy,
   TotalPullRequestTrophy,
   TotalRepositoryTrophy,
   TotalReviewsTrophy,
-  MultipleLangTrophy,
-  LongTimeAccountTrophy,
-  AncientAccountTrophy,
-  OGAccountTrophy,
-  Joined2020Trophy,
-  AllSuperRankTrophy,
-  MultipleOrganizationsTrophy,
+  TotalStarTrophy,
+  Trophy,
 } from "./trophy.ts";
 import { UserInfo } from "./user_info.ts";
-import { RANK_ORDER, RANK } from "./utils.ts";
+import { RANK, RANK_ORDER } from "./utils.ts";
 
 export class TrophyList {
   private trophies = new Array<Trophy>();
@@ -40,6 +41,7 @@ export class TrophyList {
       new OGAccountTrophy(userInfo.ogAccount),
       new Joined2020Trophy(userInfo.joined2020),
       new MultipleOrganizationsTrophy(userInfo.totalOrganizations),
+      new AccountDurationTrophy(userInfo.durationDays),
     );
   }
   get length() {
@@ -49,9 +51,11 @@ export class TrophyList {
     return this.trophies;
   }
   private get isAllSRank() {
-      return this.trophies.every((trophy) => trophy.rank.slice(0, 1) == RANK.S) ? 1 : 0;
+    return this.trophies.every((trophy) => trophy.rank.slice(0, 1) == RANK.S)
+      ? 1
+      : 0;
   }
-  filterByHideen() {
+  filterByHidden() {
     this.trophies = this.trophies.filter((trophy) =>
       !trophy.hidden || trophy.rank !== RANK.UNKNOWN
     );
@@ -64,9 +68,9 @@ export class TrophyList {
   filterByRanks(ranks: Array<string>) {
     if (ranks.filter((rank) => rank.includes("-")).length !== 0) {
       this.trophies = this.trophies.filter((trophy) =>
-        !ranks.map(rank => rank.substring(1)).includes(trophy.rank)
-      )
-      return
+        !ranks.map((rank) => rank.substring(1)).includes(trophy.rank)
+      );
+      return;
     }
     this.trophies = this.trophies.filter((trophy) =>
       ranks.includes(trophy.rank)
@@ -78,4 +82,3 @@ export class TrophyList {
     );
   }
 }
-
